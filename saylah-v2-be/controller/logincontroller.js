@@ -1,27 +1,80 @@
-app.post('saylahv2/signup', async (req, res) => {
-  try {
-    const salt = await bcrypt.genSalt();
-    req.body.password = await bcrypt.hash(req.body.password, salt);
+const { CognitoIdentityProviderClient, SignUpCommand, InitiateAuthCommand, GlobalSignOutCommand } = require('@aws-sdk/client-cognito-identity-provider');
 
-    const user = await userSchema.create(req.body);
-
-    const token = jwt.sign({ userId: user._id }, process.env.SECRET);
-    res.send({ token });
-  } catch (err) {
-    res.status(400).send(err);
+const client = new CognitoIdentityProviderClient({
+  region: 'ap-southeast-1',
+  credentials: {
+    accessKeyId: '',
+    secretAccessKey: ''
   }
 });
 
-app.post('saylahv2/login', async (req, res) => {
+async function registerUser(email, password, nickname, phoneNumber, address, name) {
+  const userAttributes = [
+    { Name: 'email', Value: email },
+    { Name: 'nickname', Value: nickname },
+    { Name: 'phone_number', Value: phoneNumber },
+    { Name: 'address', Value: address },
+    { Name: 'name', Value: name }
+  ];
+
+  const signUpCommand = new SignUpCommand({
+    ClientId: '',
+    Username: email,
+    Password: password,
+    UserAttributes: userAttributes
+  });
+
   try {
-    const user = await User.findByEmail(req.body.email);
-
-    const valid = await bcrypt.compare(req.body.password, user.password);
-    if(!valid) throw new Error('Invalid password');
-
-    const token = jwt.sign({ userId: user._id }, process.env.SECRET);
-    res.send({ token });
+    const response = await client.send(signUpCommand);
+    console.log('User registered successfully:', response.UserConfirmed ? 'User confirmed' : 'User confirmation required');
+    // Handle user confirmation if required
   } catch (err) {
-    res.status(400).send(err);
+    console.error('Registration error:', err);
   }
-});
+}
+
+async function loginUser(email, password) {
+  const authCommand = new InitiateAuthCommand({
+    ClientId: '',
+    AuthFlow: 'USER_PASSWORD_AUTH',
+    AuthParameters: {
+      USERNAME: email,
+      PASSWORD: password
+    }
+  });
+
+  try {
+    const response = await client.send(authCommand);
+    const accessToken = response.AuthenticationResult.AccessToken;
+    const idToken = response.AuthenticationResult.IdToken;
+    console.log('User logged in successfully:', email);
+    console.log('Access Token:', accessToken);
+    console.log('ID Token:', idToken);
+    // Use the tokens for secure API access or other purposes
+  } catch (err) {
+    console.error('Login error:', err);
+  }
+}
+
+async function logoutUser(accessToken) {
+  const globalSignOutCommand = new GlobalSignOutCommand({
+    GlobalSignOutRequest: {
+      AccessToken: accessToken
+    }
+  });
+
+  try {
+    await client.send(globalSignOutCommand);
+    console.log('User logged out successfully');
+  } catch (err) {
+    console.error('Logout error:', err);
+  }
+}
+
+
+
+module.exports = {
+    registerUser,
+    loginUser,
+    logoutUser
+};
