@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors'); // Import the cors middleware
 const {getSettingsFromDatabase, saveSettingsInDatabase} = require('./controller/settings_controller')
@@ -17,7 +19,8 @@ app.listen(PORT, () => {
 
 app.get('/settings', async (req, res) => {
   try {
-    const settings = await getSettingsFromDatabase(req.userId);
+    const {userId} = req.body;
+    const settings = await getSettingsFromDatabase(userId);
     res.status(200).json(settings);
   } catch (error) {
     console.log(error)
@@ -26,9 +29,9 @@ app.get('/settings', async (req, res) => {
 });
 
 app.post('/settings', async (req, res) => {
-  const {userId, language, output, theme} = req.body;
-
   try {
+    // console.log(req.body)
+    const {userId, language, output, theme} = req.body;
     await saveSettingsInDatabase(userId, language, output, theme);
     res.status(200).json();
   } catch (error) {
