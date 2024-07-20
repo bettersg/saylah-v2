@@ -1,4 +1,6 @@
 const { CognitoIdentityProviderClient, SignUpCommand, InitiateAuthCommand, GlobalSignOutCommand } = require('@aws-sdk/client-cognito-identity-provider');
+const express = require("express");
+const app = express();
 
 const client = new CognitoIdentityProviderClient({
   region: 'ap-southeast-1',
@@ -7,6 +9,7 @@ const client = new CognitoIdentityProviderClient({
     secretAccessKey: ''
   }
 });
+
 
 async function registerUser(email, password, nickname, phoneNumber, address, name) {
   const userAttributes = [
@@ -18,7 +21,7 @@ async function registerUser(email, password, nickname, phoneNumber, address, nam
   ];
 
   const signUpCommand = new SignUpCommand({
-    ClientId: '',
+    ClientId: 'al68528u4js6p4gsmltfdg10k',
     Username: email,
     Password: password,
     UserAttributes: userAttributes
@@ -35,7 +38,7 @@ async function registerUser(email, password, nickname, phoneNumber, address, nam
 
 async function loginUser(email, password) {
   const authCommand = new InitiateAuthCommand({
-    ClientId: '',
+    ClientId: 'al68528u4js6p4gsmltfdg10k',
     AuthFlow: 'USER_PASSWORD_AUTH',
     AuthParameters: {
       USERNAME: email,
