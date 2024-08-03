@@ -2,7 +2,10 @@ require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors'); // Import the cors middleware
-const {getSettingsFromDatabase, saveSettingsInDatabase} = require('./controller/settings_controller')
+const { checkSchema } = require('express-validator');
+
+const settings_controller = require('./controller/settings_controller')
+const settings_validator = require('./validators/settings_validator')
 
 const app = express();
 
@@ -17,27 +20,7 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-app.get('/settings', async (req, res) => {
-  try {
-    const {userId} = req.body;
-    const settings = await getSettingsFromDatabase(userId);
-    res.status(200).json(settings);
-  } catch (error) {
-    console.log(error)
-    res.status(500).json({ error: 'Failed to retrieve settings' });
-  }
-});
-
-app.post('/settings', async (req, res) => {
-  try {
-    // console.log(req.body)
-    const {userId, language, output, theme} = req.body;
-    await saveSettingsInDatabase(userId, language, output, theme);
-    res.status(200).json();
-  } catch (error) {
-    console.log(error)
-    res.status(500).json({ error: 'Failed to update settings' });
-  }
-});
+app.get('/settings', settings_controller.handleGetSettings);
+app.post('/settings', checkSchema(settings_validator), settings_controller.handleSaveSettings);
 
 app.listen()
