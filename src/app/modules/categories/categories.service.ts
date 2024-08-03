@@ -16,7 +16,7 @@ export class CategoriesService {
   categories$: Observable<Card[]> = this.categories.asObservable();
 
   found: boolean = false;
-  defaultCategory = { name: "Category", code: "Category"};
+  defaultCategory = { name: "Category", code: "category"};
 
   fetchCategories(): Observable<Card[]> {
     return this.http.get<Card[]>('assets/json/sample-categories.json')

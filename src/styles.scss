@@ -1,2 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+// import polyfill first (optional, depends on use case), follow by the web components
+// @import "/node_modules/@webcomponents/scoped-custom-element-registry";
+// @import "@govtechsg/sgds-web-component";
+
+.adjustable-font {
+  font-size: 16px; /* Default font size */
+}
+
+@media screen and (max-width: 768px) {
+  .adjustable-font {
+    font-size: 4vw; /* Font size will be 4% of the viewport width when screen width is <= 768px */
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .adjustable-font {
+    font-size: 3vw; /* Font size will be 3% of the viewport width when screen width is between 769px and 1024px */
+  }
+}
+
+// :root {
+//   --box-padding: 20px; /* Define a custom CSS variable for box padding */
+// }
+
+.custom-box {
+  padding: var(--bulma-box-padding); /* Use the CSS variable for padding */
+  // background-color: #f0f0f0;
+  // border: 1px solid #ccc;
+  // border-radius: 5px;
+  margin: 20px;
+}
+
+.custom-card {
+  padding: var(--bulma-card-content-padding);
+  margin: 20px;
+}
+
+
+button.responsive-button {
+    font-size: 16px; /* Default font size */
+    padding: 10px 20px; /* Default padding */
+  }
+
+  @media screen and (max-width: 768px) {
+    button.responsive-button {
+      font-size: 3vw; /* Font size will be 3% of the viewport width when screen width is <= 768px */
+      padding: 5px 10px; /* Adjust padding for smaller screens */
+    }
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    button.responsive-button {
+      font-size: 2.5vw; /* Font size will be 2.5% of the viewport width when screen width is between 769px and 1024px */
+      padding: 8px 16px; /* Adjust padding for medium screens */
+    }
+  }

@@ -1,0 +1,17 @@
+{
+  "projectName": "saylahv2",
+  "version": "3.1",
+  "frontend": "javascript",
+  "javascript": {
+    "framework": "angular",
+    "config": {
+      "SourceDir": "src",
+      "DistributionDir": "dist/saylah-v2/browser",
+      "BuildCommand": "npm run ng build",
+      "StartCommand": "ng serve"
+    }
+  },
+  "providers": [
+    "awscloudformation"
+  ]
+}

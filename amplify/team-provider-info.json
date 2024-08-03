@@ -1,0 +1,29 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-saylahv2-dev-15a0d-authRole",
+      "UnauthRoleArn": "arn:aws:iam::040852923863:role/amplify-saylahv2-dev-15a0d-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::040852923863:role/amplify-saylahv2-dev-15a0d-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-saylahv2-dev-15a0d-deployment",
+      "UnauthRoleName": "amplify-saylahv2-dev-15a0d-unauthRole",
+      "StackName": "amplify-saylahv2-dev-15a0d",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:040852923863:stack/amplify-saylahv2-dev-15a0d/da4c9e60-15ab-11ef-a956-0632f1d5dbc7",
+      "AmplifyAppId": "d2emx9gshek6to"
+    },
+    "categories": {
+      "api": {
+        "saylahv2": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d2emx9gshek6to",
+          "type": "manual"
+        }
+      },
+      "auth": {
+        "saylahv2af9c1f29": {}
+      }
+    }
+  }
+}

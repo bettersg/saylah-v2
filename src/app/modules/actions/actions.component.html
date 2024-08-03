@@ -1,3 +1,40 @@
-<div class="box">
-  <h1 class="title is-2 center-text">Actions</h1>
-</div>
+<ng-container *ngIf="action$ | async as action">
+    <div class="custom-box">
+      <div class="center-text adjustable-font">{{ action.name }}</div>
+    </div>
+    <ng-container *ngIf="action.cards?.length; else empty">
+      <app-card *ngFor="let card of action.cards">
+          <div class="custom-card">
+              <br>
+              <br>
+              <div class="card-image">
+                  <a href="#" [routerLink]="['', card.code]">
+                    <img src="https://source.unsplash.com/featured/?{{card.code}}"
+                      class="center-img"
+                      loading="lazy"
+                      width="224" height="56"
+                      alt="Placeholder image">
+                  </a>
+              </div>
+              <!-- <div class="card-content">
+                <div class="content center-text adjustable-font">
+                  {{ card.name}}
+                </div>
+              </div> -->
+              <footer class="card-footer">
+                <button (click)="say(card)"  type="button" class="btn btn-outline-dark sgds card-footer-item responsive-button">{{ card.name}}</button>
+                <!-- <button (click)="say(card)" class="button is-primary is-light card-footer-item">{{ card.name}}</button> -->
+              </footer>
+          </div>
+          <br>        
+      </app-card>
+    </ng-container>
+    <ng-template #empty>
+      <div class="custom-box">
+        <h1>Oooops this space is empty</h1>
+        <br>
+        <sgds-button slot="end" (click)="back()">Go back</sgds-button>
+        <sgds-button slot="end" [routerLink]="['/edit']">Create / Edit</sgds-button>
+      </div>
+    </ng-template>
+</ng-container>

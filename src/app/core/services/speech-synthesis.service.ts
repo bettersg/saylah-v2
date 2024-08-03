@@ -52,6 +52,8 @@ export class SpeechSynthesisService {
 
   async generateVoices() {
     setTimeout(() => {
+      if (typeof window !== "undefined") {
+        // browser code
       let speechSynthesisVoice: SpeechSynthesisVoice[];
       speechSynthesisVoice = window.speechSynthesis.getVoices();
       this.synthesisVoices = speechSynthesisVoice.sort(function (a, b) {
@@ -68,6 +70,7 @@ export class SpeechSynthesisService {
         }
         this.voices.push(voice);
       }
+     }
     }, 10);
   }
 

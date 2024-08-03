@@ -1,0 +1,282 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f8f8f8;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+  }
+  
+  .menu-icon {
+    position: relative;
+  }
+  
+  .menu-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .submenu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 10;
+  }
+  
+  .submenu a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .submenu a:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .submenu.show {
+    display: block;
+  }
+  
+  .app-name {
+    font-size: 18px;
+  }
+  
+  .main-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+    max-width: 800px;
+    padding: 10px;
+  }
+  
+  .scrollable-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    overflow-y: auto;
+    max-height: 80vh;
+    padding-right: 10px;
+  }
+  
+  .grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer; /* Make grid item clickable */
+      }
+  
+  .grid-item img {
+    max-width: 80px;
+    max-height: 80px;
+    margin-bottom: 10px;
+  }
+  
+  .actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100px;
+    padding: 20px 0;
+  }
+  
+  .action-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer; /* Make action item clickable */
+  }
+  
+  .action-item img {
+    max-width: 50px;
+    max-height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .header {
+      display: none;
+    }
+  
+    .main-content {
+      flex-direction: row;
+      align-items: flex-start;
+      max-width: none;
+    }
+  
+    .scrollable-grid {
+      margin-right: 40px;
+    }
+  
+    .actions {
+      flex-direction: column;
+      width: auto;
+    }
+  }
+  
+  @media (orientation: landscape) {
+    .header {
+      display: none;
+    }
+  
+    .container {
+      flex-direction: row;
+      justify-content: center;
+    }
+  
+    .main-content {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: auto;
+      height: 100vh; /* Ensure it takes up the full height */
+    }
+  
+    .scrollable-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Make grid responsive */
+      gap: 20px;
+      overflow-y: auto;
+      height: 100%; /* Ensure it takes up the available vertical space */
+      margin-right: 40px;
+      flex: 1; /* Ensure it takes up remaining space */
+    }
+  
+    .actions {
+      flex-direction: column;
+      align-items: flex-start;
+      height: 100%; /* Ensure it takes up the full height */
+      flex-shrink: 0; /* Prevent it from shrinking */
+    }
+  
+    .action-item {
+      margin-bottom: 20px;
+    }
+  
+    .mini-taskbar {
+      display: flex;
+    }
+  }
+  
+  .mini-taskbar {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #007bff;
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .mini-taskbar .menu-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .mini-taskbar .submenu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 200px;
+    padding: 10px;
+  }
+  
+  .mini-taskbar .submenu a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .mini-taskbar .submenu a:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .mini-taskbar.show .submenu {
+    display: flex;
+  }
+  
+  @media (orientation: portrait) {
+    .app-name {
+      font-size: 18px;
+    }
+  
+    .main-content {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      height: calc(100vh - 50px); /* Adjust to take full height minus the header */
+    }
+  
+    .scrollable-grid {
+      flex: 1;
+      width: 100%;
+      max-height: calc(100vh - 150px); /* Adjust to take full height minus the header and actions */
+      margin-bottom: 20px;
+      overflow-y: auto; /* Ensure the content is scrollable */
+    }
+  
+    .actions {
+      width: 100%;
+      justify-content: space-around;
+      padding: 0;
+      position: absolute;
+      bottom: 0;
+    }
+  
+    .actions .action-item {
+      margin-bottom: 10px;
+    }
+  
+    .mini-taskbar {
+      display: none;
+    }
+  }

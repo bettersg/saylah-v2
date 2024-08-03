@@ -1,0 +1,87 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+
+# Card
+type Card @model
+@auth(rules: [
+  { allow: owner, ownerField: "owner", operations: [create, update, delete] },
+  { allow: private, operations: [read, create, update, delete] },
+  { allow: public, operations: [read] },
+])
+{
+  id: ID!
+  name: String!
+  code: String!
+  type: String!
+  image: String
+  sound: String
+  cards: [Card] @hasMany
+  card: Card @belongsTo
+  template: Card @belongsTo
+  owner: String!
+}
+
+# Dimensions for the card
+type Interface @model
+@auth(rules: [
+  { allow: owner, operations: [create, update, delete] },
+  { allow: private, operations: [read, create, update, delete] },
+  { allow: public, operations: [read] }
+])
+{
+  id: ID!
+  name: String!
+  gridSizePortraitX: String!
+  gridSizePortraitY: String!
+  gridSizeLandscapeX: String!
+  gridSizeLandscapeY: String!
+  FontSize: String!
+  owner: String!
+}
+
+# Group of cards
+type Template @model
+@auth(rules: [
+  { allow: owner, operations: [create, update, delete] },
+  { allow: private, operations: [read, create, update, delete] },
+  { allow: public, operations: [read] },
+])
+{
+  id: ID!
+  name: String!
+  cards: [Card] @hasMany
+  owner: String!
+}
+
+# Group of Interfaces
+type SavedInterface @model
+@auth(rules: [
+  { allow: owner, operations: [create, update, delete] },
+  { allow: private, operations: [read, create, update, delete] },
+  { allow: public, operations: [read] },
+])
+{
+  id: ID!
+  name: String!
+  interfaces: [Interface] @hasMany
+  owner: String!
+}
+
+# Setting
+type Setting @model
+@auth(rules: [
+  { allow: owner, operations: [create, update, delete] },
+  { allow: private, operations: [read, create, update, delete] },
+  { allow: public, operations: [read] },
+])
+{
+  id: ID!
+  language: String!
+  voice: String!
+  gridSizePortrait: String!
+  gridSizeLandscape: String!
+  fontSize: String!
+  theme: String!
+  owner: String!
+}

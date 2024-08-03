@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="header">
+      <div class="menu-icon">
+        <button class="menu-button" (click)="toggleMenu()">☰</button>
+        <div class="submenu" [class.show]="isMenuOpen">
+          <a routerLink="/home">About SayLah!✌🏼</a>
+          <a routerLink="/edit">Edit</a>
+          <a routerLink="/settings">Settings</a>
+          <a *ngIf="!isLoggedIn" routerLink="/auth">Login / Sign up</a>
+          <a *ngIf="isLoggedIn" (click)="onLogout()">Logout</a>
+        </div>
+      </div>
+      <div class="app-name">SayLah!✌🏼</div>
+    </div>
+    <div class="main-content">
+      <div class="scrollable-grid">
+        <div class="grid-item" (click)="readText('food')" >
+          <img src="assets/img/food.png" alt="Food"/>
+          <div>Food</div>
+        </div>
+        <div class="grid-item" (click)="readText('place')" >
+          <img src="assets/img/place.png" alt="Place"/>
+          <div>Place</div>
+        </div>
+        <div class="grid-item" (click)="readText('play')" >
+          <img src="assets/img/play.png" alt="Play"/>
+          <div>Play</div>
+        </div>
+        <div class="grid-item" *ngFor="let card of cards" (click)="readText(card.name)" >
+          <img [src]="card.image" [alt]="card.name" />
+          <div>{{ card.name }}</div>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="action-item" (click)="readText('yes')" >
+          <img src="assets/img/yes.png" alt="Yes"/>
+          <div>Yes</div>
+        </div>
+        <div class="action-item" (click)="readText('no')" >
+          <img src="assets/img/no.png" alt="No"/>
+          <div>No</div>
+        </div>
+        <div class="action-item" (click)="readText('help')" >
+          <img src="assets/img/help.png" alt="Help"/>
+          <div>Help</div>
+        </div>
+      </div>
+    </div>
+    <div class="mini-taskbar" [class.show]="isMenuOpen" (click)="toggleMenu()">
+      <div class="menu-button">☰</div>
+      <div class="submenu">
+        <a routerLink="/home">About SayLah!✌🏼</a>
+        <a routerLink="/edit">Edit</a>
+        <a *ngIf="!isLoggedIn" routerLink="/auth">Login / Sign up</a>
+        <a *ngIf="isLoggedIn" (click)="onLogout()">Logout</a>
+      </div>
+    </div>
+  </div>

@@ -23,10 +23,18 @@
     "@angular/ssr": "^17.0.6",
     "dotenv": "^16.4.5",
     "dynamoose": "^4.0.1",
+    "@aws-amplify/ui-angular": "^5.0.16",
+    "@govtechsg/sgds": "^2.2.0",
+    "@govtechsg/sgds-web-component": "^1.1.0",
+    "@webcomponents/scoped-custom-element-registry": "^0.0.9",
+    "aws-amplify": "^6.3.2",
+    "bootstrap-icons": "^1.11.3",
     "express": "^4.18.2",
     "express-validator": "^7.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "uuid": "^9.0.1",
+    "zen-observable-ts": "^1.1.0",
     "zone.js": "~0.14.2"
   },
   "devDependencies": {

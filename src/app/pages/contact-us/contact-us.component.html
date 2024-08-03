@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<br>
+<div class="container">
+    <p><strong>Contact Us</strong></p>
+    <p>Have questions, suggestions, or just want to say hello? We'd love to hear from you! Feel free to reach out to us through <a href="mailto:junzezheng@better.sg">Gin's email</a> or fill out the form below. Our team at SayLah! is here to support you every step of the way. Let's connect and make a difference together!</p>
+    <br>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <!-- <label for="emailOrNumber">Email or Phone Number</label> -->
+          <input type="text" id="emailOrNumber" formControlName="emailOrNumber" class="form-control" placeholder="Enter your email or phone number">
+          <div *ngIf="contactForm.get('emailOrNumber')?.invalid && contactForm.get('emailOrNumber')?.touched" class="text-danger">
+            Email or Phone Number is required
+          </div>
+        </div>
+        <div class="form-group">
+          <!-- <label for="message">Message</label> -->
+          <textarea id="message" formControlName="message" class="form-control" rows="5" placeholder="Enter your message"></textarea>
+          <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="text-danger">
+            Message is required
+          </div>
+        </div>
+        <button type="submit" [disabled]="contactForm.invalid" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+<br>
+<app-footer></app-footer>

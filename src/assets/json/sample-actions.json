@@ -1,0 +1,19 @@
+{
+  "name": "Actions",
+  "code": "actions",
+  "cards" :
+  [
+    {
+      "name": "Yes",
+      "code": "yes"
+    },
+    {
+      "name": "No",
+      "code": "no"
+    },
+    {
+      "name": "Help",
+      "code": "help"
+    }
+  ]  
+}

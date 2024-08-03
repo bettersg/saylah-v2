@@ -75,3 +75,16 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Developer notes
+
+### AWS amplify
+See [guide](https://docs.amplify.aws/javascript/tools/cli/start/set-up-cli/#configure-the-amplify-cli) for Angular development with AWS amplify.
+
+### IAM Access key / secret
+`removed`
+
+### Amplify commnads
+1. `amplify init`
+2. `amplify configure`
+3. `amplify env list` | `amplify env pull` | `amplify env remove`
