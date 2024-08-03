@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { V6Client } from "@aws-amplify/api-graphql";
 import { Client, generateClient } from 'aws-amplify/api';
 import * as mutations from '../../../graphql/mutations';
 import * as queries from '../../../graphql/queries';
@@ -10,10 +11,10 @@ import { getCurrentUser } from 'aws-amplify/auth';
   providedIn: 'root'
 })
 export class CardApiService {
-  private client!: Client;
+  private client!: V6Client<Client>;
 
   constructor() {
-    this.client = generateClient<any>();
+    this.client = generateClient<Client>();
   }
 
   async getCurrentUser() {
