@@ -1,0 +1,52 @@
+# this is an auto generated file. This will be overwritten
+
+query GetCard($id: ID!) {
+  getCard(id: $id) {
+    id
+    name
+    code
+    image
+    sound
+    cards {
+      nextToken
+      __typename
+    }
+    card {
+      id
+      name
+      code
+      image
+      sound
+      createdAt
+      updatedAt
+      cardCardsId
+      __typename
+    }
+    createdAt
+    updatedAt
+    cardCardsId
+    __typename
+  }
+}
+
+query ListCards(
+  $filter: ModelCardFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listCards(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      code
+      image
+      sound
+      createdAt
+      updatedAt
+      cardCardsId
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}

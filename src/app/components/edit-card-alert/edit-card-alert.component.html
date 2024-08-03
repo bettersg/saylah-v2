@@ -1,0 +1,21 @@
+<div class="overlay">
+  <div class="alert-container">
+    <div class="form-group">
+      <label for="group-name">Group Name</label>
+      <input type="text" id="group-name" placeholder="eg: Food" [(ngModel)]="name">
+    </div>
+    <div class="form-group">
+      <label for="image-url">Image</label>
+      <input type="text" id="image-url" placeholder="Insert link: e.g https://imgur.com" [(ngModel)]="url">
+      <div class="image-upload">
+        <img *ngIf="url" [src]="url" alt="Uploaded Image">
+        <button *ngIf="url" class="remove-image" (click)="removeImage()">&#x2715;</button>
+      </div>
+      <div *ngIf="!url" class="upload-placeholder" (click)="uploadImage()">Tap to upload from device</div>
+    </div>
+    <div class="button-group">
+      <button class="save-button" (click)="saveGroup()">Save</button>
+      <button class="cancel-button" (click)="cancel()">Cancel</button>
+    </div>
+  </div>
+</div>

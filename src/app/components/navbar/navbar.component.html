@@ -1,0 +1,23 @@
+<div>
+  <sgds-masthead></sgds-masthead>
+</div>
+<sgds-mainnav>
+  <a class="navbar-item" href="#">
+    <img src="../../../assets/img/betterwordlogo@0.5x.png" width="112" height="28"
+        alt="cannot load image"
+        loading="lazy">
+  </a>
+  <sgds-mainnav-item>SayLah! </sgds-mainnav-item>
+  <sgds-mainnav-item href="/about">About</sgds-mainnav-item>
+  <sgds-mainnav-dropdown togglertext="More" close="default">
+    <sgds-dropdown-item href="/edit">Edit</sgds-dropdown-item>
+    <sgds-dropdown-item href="/settings">Settings</sgds-dropdown-item>
+    <sgds-dropdown-item href="/saved-interfaces">Saved Interfaces</sgds-dropdown-item>
+    <sgds-dropdown-item href="/templates">Templates</sgds-dropdown-item>
+    <sgds-dropdown-item href="https://saylah.sg">V1</sgds-dropdown-item>
+  </sgds-mainnav-dropdown>
+  <sgds-mainnav-item href="/contact-us" slot="end">Contact Us</sgds-mainnav-item>
+  <sgds-button slot="end" (click)="login()">Login</sgds-button>
+  <ng-content slot="end" select="sgds-button.sign-out"></ng-content>
+  <dev-console-widget slot="non-collapsible" iconcolor="black" iconwidth="28px" iconheight="28px"></dev-console-widget>
+</sgds-mainnav>

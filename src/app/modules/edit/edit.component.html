@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="header">
+      <div class="menu-icon">
+        <button class="menu-button" (click)="toggleMenu()">☰</button>
+        <div class="submenu" [class.show]="isMenuOpen">
+          <a routerLink="/home">About SayLah!✌🏼</a>
+          <a routerLink="/">Home</a>
+          <a routerLink="/settings">Settings</a>
+          <a routerLink="/home">Logout</a>
+        </div>
+      </div>
+      <div class="app-name">SayLah!✌🏼</div>
+    </div>
+    <div class="main-content">
+      <div class="scrollable-grid">
+        <div class="grid-item" *ngFor="let card of cards" (click)="openEditAlert(card.name, card.image)">
+          <img [src]="card.image" [alt]="card.name" />
+          <div>{{ card.name }}</div>
+        </div>
+        <div class="grid-item">
+            Add new group
+        </div>
+        
+      </div>
+      <div class="actions">
+        <div class="action-item">
+          <img src="assets/img/yes.png" alt="Edit" />
+          <div>Save</div>
+        </div>
+        <div class="action-item">
+          <img src="assets/img/no.png" alt="Delete" />
+          <div>Cancel</div>
+        </div>
+        <!-- <div class="action-item">
+          <img src="assets/img/help.png" alt="Move" />
+          <div>Move</div>
+        </div> -->
+      </div>
+    </div>
+    <div class="mini-taskbar" [class.show]="isMenuOpen" (click)="toggleMenu()">
+      <div class="menu-button">☰</div>
+      <div class="submenu">
+        <a routerLink="/home">About SayLah!✌🏼</a>
+        <a routerLink="/">Home</a>
+        <a routerLink="/settings">Settings</a>
+        <a routerLink="/home">Logout</a>
+      </div>
+    </div>
+  </div>

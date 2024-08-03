@@ -1,0 +1,30 @@
+<ng-container *ngIf="!isLoggedIn">
+    <div>
+        <sgds-masthead></sgds-masthead>
+      </div>
+      <sgds-mainnav>
+        <a class="navbar-item" href="#">
+          <img src="../../../assets/img/betterwordlogo@0.5x.png" width="112" height="28"
+              alt="cannot load image"
+              loading="lazy">
+        </a>
+        <sgds-mainnav-item>SayLah! </sgds-mainnav-item>
+      </sgds-mainnav>
+      <br>
+</ng-container>
+
+<amplify-authenticator>
+  <ng-template
+    amplifySlot="authenticated"
+    let-user="user"
+    let-signOut="signOut"
+  >
+    <app-navbar *ngIf="isLoggedIn">
+        <sgds-button class="sign-out" (click)="signOut();onLogout()">Sign Out</sgds-button>
+    </app-navbar>
+    <app-edit-cards></app-edit-cards>
+  </ng-template>
+</amplify-authenticator>
+
+<br>
+<app-footer></app-footer>

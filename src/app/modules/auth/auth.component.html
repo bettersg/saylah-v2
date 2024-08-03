@@ -1,0 +1,48 @@
+<div class="sign-in-sign-up">
+  <header>
+    <a [routerLink]="['/']">
+      <img [src]="authData.header.logo" alt="SayLah Logo" width="100px" height="100px">
+    </a>
+    <h1>{{ authData.header.title }}</h1>
+    <h2>{{ authData.header.subtitle }}</h2>
+  </header>
+
+  <section class="forms">
+    <amplify-authenticator>
+      <ng-template
+        amplifySlot="authenticated"
+        let-user="user"
+        let-signOut="signOut">
+        <div class="sign-up">
+          <form>
+            <h3>Successfully logged in</h3>
+            <div class="countdown-container">
+              <p>Redirecting to dashboard in {{ countdown }} seconds...</p>
+            </div>
+            <label>If it takes any longer, click any of the choices</label>
+            <button (click)="navigateToDashboard()" type="button">{{ authData.signUpForm.signUpButton }}</button> or
+            <button class="sign-out-btn" (click)="signOut()">Sign Out</button>
+          </form>
+        </div>
+      </ng-template>
+    </amplify-authenticator>
+  </section>
+
+  <!-- <section class="social-media-sign-in">
+    <h3>Or Sign In Using</h3>
+    <ul>
+      <li *ngFor="let platform of authData.socialMediaSignIn">
+        <a [href]="platform.signInUrl" target="_blank">{{ platform.platform }}</a>
+      </li>
+    </ul>
+  </section> -->
+
+  <footer>
+    <p>{{ authData.footer.contactInfo }}</p>
+    <ul>
+      <li *ngFor="let link of authData.footer.socialMediaLinks">
+        <a [href]="link.url" target="_blank">{{ link.platform }}</a>
+      </li>
+    </ul>
+  </footer>
+</div>
