@@ -1,0 +1,10 @@
+{
+  "resourceName": "voice",
+  "tableName": "saylahV2Voice",
+  "partitionKey": {
+    "fieldName": "gender",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

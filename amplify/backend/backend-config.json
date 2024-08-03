@@ -1,5 +1,19 @@
 {
   "api": {
+    "saylahV2Rest": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "healthCheck"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "saylahv2": {
       "dependsOn": [
         {
@@ -58,6 +72,27 @@
       "service": "Cognito"
     }
   },
+  "function": {
+    "healthCheck": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "voice"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
   "hosting": {
     "amplifyhosting": {
       "providerPlugin": "awscloudformation",
@@ -66,6 +101,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_healthCheck_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "healthCheck"
+        }
+      ]
+    },
+    "AMPLIFY_function_healthCheck_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "healthCheck"
+        }
+      ]
+    },
     "AMPLIFY_hosting_amplifyhosting_appId": {
       "usedBy": [
         {
@@ -81,6 +132,12 @@
           "resourceName": "amplifyhosting"
         }
       ]
+    }
+  },
+  "storage": {
+    "voice": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
     }
   }
 }

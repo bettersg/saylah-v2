@@ -4,6 +4,13 @@
   "aws_appsync_region": "ap-southeast-1",
   "aws_appsync_authenticationType": "API_KEY",
   "aws_appsync_apiKey": "da2-ivx7lbz4snfe3g3g24ucho6dtu",
+  "aws_cloud_logic_custom": [
+    {
+      "name": "saylahV2Rest",
+      "endpoint": "https://wd7fzhjfo5.execute-api.ap-southeast-1.amazonaws.com/dev",
+      "region": "ap-southeast-1"
+    }
+  ],
   "aws_cognito_identity_pool_id": "ap-southeast-1:0ea05dda-7c4a-4220-95d2-6d8a79ff54d4",
   "aws_cognito_region": "ap-southeast-1",
   "aws_user_pools_id": "ap-southeast-1_eCnWBq1vc",
@@ -24,5 +31,12 @@
   },
   "aws_cognito_verification_mechanisms": [
     "EMAIL"
+  ],
+  "aws_dynamodb_all_tables_region": "ap-southeast-1",
+  "aws_dynamodb_table_schemas": [
+    {
+      "tableName": "saylahV2Voice-dev",
+      "region": "ap-southeast-1"
+    }
   ]
 }

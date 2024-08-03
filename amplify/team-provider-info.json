@@ -13,7 +13,8 @@
     },
     "categories": {
       "api": {
-        "saylahv2": {}
+        "saylahv2": {},
+        "saylahV2Rest": {}
       },
       "hosting": {
         "amplifyhosting": {
@@ -23,6 +24,15 @@
       },
       "auth": {
         "saylahv2af9c1f29": {}
+      },
+      "function": {
+        "healthCheck": {
+          "deploymentBucketName": "amplify-saylahv2-dev-15a0d-deployment",
+          "s3Key": "amplify-builds/healthCheck-5048706862794b2b6236-build.zip"
+        }
+      },
+      "storage": {
+        "voice": {}
       }
     }
   }
