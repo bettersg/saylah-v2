@@ -1,7 +1,7 @@
 const dynamoose = require("dynamoose");
 
 const userSettingsSchema = new dynamoose.Schema({
-    "userId": String, // TODO: Should this be changed to user token?
+    "userId": String,
     "language": String,
     "output": String,
     "theme": String,
