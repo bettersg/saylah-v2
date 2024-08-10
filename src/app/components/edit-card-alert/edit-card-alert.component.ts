@@ -20,8 +20,16 @@ export class EditCardAlertComponent {
 
   showAlert = true;
 
+  constructor() {}
+
   saveGroup(): void {
-    // Save logic here
+    if (this.name === '' && this.url === '') {
+      // add
+
+    } else {
+      // update
+
+    }
   }
 
   cancel(): void {

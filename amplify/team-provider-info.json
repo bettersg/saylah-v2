@@ -1,28 +1,28 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-saylahv2-dev-15a0d-authRole",
-      "UnauthRoleArn": "arn:aws:iam::040852923863:role/amplify-saylahv2-dev-15a0d-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::040852923863:role/amplify-saylahv2-dev-15a0d-authRole",
-      "Region": "ap-southeast-1",
-      "DeploymentBucketName": "amplify-saylahv2-dev-15a0d-deployment",
-      "UnauthRoleName": "amplify-saylahv2-dev-15a0d-unauthRole",
-      "StackName": "amplify-saylahv2-dev-15a0d",
-      "StackId": "arn:aws:cloudformation:ap-southeast-1:040852923863:stack/amplify-saylahv2-dev-15a0d/da4c9e60-15ab-11ef-a956-0632f1d5dbc7",
-      "AmplifyAppId": "d2emx9gshek6to"
+      "AuthRoleName": "amplify-saylahv2-dev-f4a0a-authRole",
+      "UnauthRoleArn": "arn:aws:iam::654654146597:role/amplify-saylahv2-dev-f4a0a-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::654654146597:role/amplify-saylahv2-dev-f4a0a-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-saylahv2-dev-f4a0a-deployment",
+      "UnauthRoleName": "amplify-saylahv2-dev-f4a0a-unauthRole",
+      "StackName": "amplify-saylahv2-dev-f4a0a",
+      "StackId": "arn:aws:cloudformation:us-east-1:654654146597:stack/amplify-saylahv2-dev-f4a0a/080428c0-56be-11ef-b26d-12b7949839ad",
+      "AmplifyAppId": "dgg5qyz8yfsfx"
     },
     "categories": {
+      "auth": {
+        "saylahv257d2c1fe": {}
+      },
       "api": {
         "saylahv2": {}
       },
       "hosting": {
         "amplifyhosting": {
-          "appId": "d2emx9gshek6to",
+          "appId": "dgg5qyz8yfsfx",
           "type": "manual"
         }
-      },
-      "auth": {
-        "saylahv2af9c1f29": {}
       }
     }
   }

@@ -17,7 +17,7 @@
           <img [src]="card.image" [alt]="card.name" />
           <div>{{ card.name }}</div>
         </div>
-        <div class="grid-item">
+        <div class="grid-item" (click)="openAddAlert()">
             Add new group
         </div>
         

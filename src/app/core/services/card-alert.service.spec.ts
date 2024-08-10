@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { EditCardAlertService } from './edit-card-alert.service';
+import { CardAlertService } from './card-alert.service';
 
-describe('EditCardAlertService', () => {
-  let service: EditCardAlertService;
+describe('CardAlertService', () => {
+  let service: CardAlertService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(EditCardAlertService);
+    service = TestBed.inject(CardAlertService);
   });
 
   it('should be created', () => {

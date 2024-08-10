@@ -3,7 +3,9 @@ import { Card } from '../../../API';
 import { CardApiService } from '../../core/services/card-api.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { EditCardAlertService } from '../../core/services/edit-card-alert.service';
+import { CardAlertService } from '../../core/services/card-alert.service';
+import { EditCardAlertComponent } from '../../components/edit-card-alert/edit-card-alert.component';
+import { AddCardAlertComponent } from '../../components/add-card-alert/add-card-alert.component';
 
 @Component({
   selector: 'app-edit',
@@ -22,7 +24,7 @@ export class EditComponent {
   cards: Card[] = [];
 
   constructor(private cardsService: CardApiService,
-    private popupService: EditCardAlertService) {}
+    private popupService: CardAlertService) {}
 
   ngOnInit(): void {
     this.loadCards();
@@ -43,6 +45,9 @@ export class EditComponent {
   }
 
   openEditAlert(name: string, image: string|null|undefined) {
-    this.popupService.showAlert(name, image ?? '');
+    this.popupService.showAlert(name, image ?? '', EditCardAlertComponent);
+  }
+  openAddAlert() {
+    this.popupService.showAlert('', '', AddCardAlertComponent);
   }
 }

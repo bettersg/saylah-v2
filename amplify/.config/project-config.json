@@ -7,7 +7,7 @@
     "config": {
       "SourceDir": "src",
       "DistributionDir": "dist/saylah-v2/browser",
-      "BuildCommand": "npm run ng build",
+      "BuildCommand": "npm run-script build",
       "StartCommand": "ng serve"
     }
   },

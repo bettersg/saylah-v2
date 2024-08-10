@@ -7,7 +7,7 @@
             "UserPoolId"
           ],
           "category": "auth",
-          "resourceName": "saylahv2af9c1f29"
+          "resourceName": "saylahv257d2c1fe"
         }
       ],
       "output": {
@@ -16,7 +16,7 @@
             {
               "authenticationType": "AMAZON_COGNITO_USER_POOLS",
               "userPoolConfig": {
-                "userPoolId": "authsaylahv2af9c1f29"
+                "userPoolId": "authsaylahv257d2c1fe"
               }
             }
           ],
@@ -33,7 +33,7 @@
     }
   },
   "auth": {
-    "saylahv2af9c1f29": {
+    "saylahv257d2c1fe": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
