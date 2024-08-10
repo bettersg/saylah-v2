@@ -13,7 +13,7 @@
     </div>
     <div class="main-content">
       <div class="scrollable-grid">
-        <div class="grid-item" *ngFor="let card of cards" (click)="openEditAlert(card.name, card.image)">
+        <div class="grid-item" *ngFor="let card of cards$ | async" (click)="openEditAlert(card.name, card.image, card.id, card.sound ?? card.name)">
           <img [src]="card.image" [alt]="card.name" />
           <div>{{ card.name }}</div>
         </div>

@@ -4,8 +4,7 @@ import { CardApiService } from '../../core/services/card-api.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { CardAlertService } from '../../core/services/card-alert.service';
-import { EditCardAlertComponent } from '../../components/edit-card-alert/edit-card-alert.component';
-import { AddCardAlertComponent } from '../../components/add-card-alert/add-card-alert.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-edit',
@@ -21,7 +20,7 @@ import { AddCardAlertComponent } from '../../components/add-card-alert/add-card-
 export class EditComponent {
 
   isMenuOpen = false;
-  cards: Card[] = [];
+  cards$: Observable<Card[]> = this.popupService.cards$;
 
   constructor(private cardsService: CardApiService,
     private popupService: CardAlertService) {}
@@ -32,9 +31,7 @@ export class EditComponent {
 
   async loadCards() {
     try {
-      const { username } = await this.cardsService.getCurrentUser();
-      const response = await this.cardsService.listCards(username);
-      this.cards = response.data.listCards.items;
+      this.popupService.populateItems();
     } catch (error) {
       console.log('Error fetching cards', error);
     }
@@ -44,10 +41,10 @@ export class EditComponent {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  openEditAlert(name: string, image: string|null|undefined) {
-    this.popupService.showAlert(name, image ?? '', EditCardAlertComponent);
+  openEditAlert(name: string, image: string|null|undefined, id: string, sound: string) {
+    this.popupService.showAlert(name, image ?? '', id, sound);
   }
   openAddAlert() {
-    this.popupService.showAlert('', '', AddCardAlertComponent);
+    this.popupService.showAlert('', '', '', '');
   }
 }

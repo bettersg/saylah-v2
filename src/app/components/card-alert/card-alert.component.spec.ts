@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddCardAlertComponent } from './add-card-alert.component';
+import { CardAlertComponent } from './card-alert.component';
 
-describe('AddCardAlertComponent', () => {
-  let component: AddCardAlertComponent;
-  let fixture: ComponentFixture<AddCardAlertComponent>;
+describe('CardAlertComponent', () => {
+  let component: CardAlertComponent;
+  let fixture: ComponentFixture<CardAlertComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddCardAlertComponent]
+      imports: [CardAlertComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(AddCardAlertComponent);
+    fixture = TestBed.createComponent(CardAlertComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

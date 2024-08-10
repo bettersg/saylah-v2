@@ -36,7 +36,9 @@ export class AuthComponent implements OnInit {
       this.countdown--;
       if (this.countdown === 0) {
         clearInterval(this.interval);
-        this.router.navigate(['/auth']);
+        if (this.authService.isAuthenticated()) {
+          this.router.navigate(['/']);
+        }
       }
     }, 1000);
   }

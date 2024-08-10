@@ -1,0 +1,4 @@
+<h2>Upload Image to Imgur</h2>
+<input type="file" (change)="onFileSelected($event)">
+<button (click)="onUpload()">Upload</button>
+<p *ngIf="imageUrl">Image URL: <a [href]="imageUrl" target="_blank">{{ imageUrl }}</a></p>

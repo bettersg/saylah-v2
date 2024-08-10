@@ -1,0 +1,27 @@
+<div class="overlay">
+    <div class="alert-container">
+      <div class="form-group">
+        <label for="group-name">Group Name</label>
+        <input type="text" id="group-name" placeholder="eg: Food" [(ngModel)]="name">
+      </div>
+      <div class="form-group">
+        <label for="image-url">Image</label>
+        <input type="text" id="image-url" placeholder="Insert link: e.g https://imgur.com" [(ngModel)]="url" required>
+        <label for="sound">Text to speak</label>
+        <input type="text" id="sound" placeholder="Text to speak" [(ngModel)]="sound" required>
+        <div class="image-upload">
+          <img *ngIf="url" [src]="url" alt="Uploaded Image">
+          <button *ngIf="url" class="remove-image" (click)="removeImage()">&#x2715;</button>
+        </div>
+        <div *ngIf="!url" class="upload-placeholder">
+          <input type="file" (change)="onFileSelected($event)" accept="image/*" style="display: none;" #fileInput>
+          <button (click)="fileInput.click()">Tap to upload from device</button>
+        </div>
+        <div *ngIf="url === '' && isSubmitted" class="error-message">Image is required.</div> <!-- Error message -->
+      </div>
+      <div class="button-group">
+        <button class="save-button" (click)="saveGroup()">{{ action }}</button> <!-- Disable if url is empty -->
+        <button class="cancel-button" (click)="cancel()">Cancel</button>
+      </div>
+    </div>
+  </div>

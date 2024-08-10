@@ -26,7 +26,7 @@
           <img src="assets/img/play.png" alt="Play"/>
           <div>Play</div>
         </div>
-        <div class="grid-item" *ngFor="let card of cards" (click)="readText(card.name)" >
+        <div class="grid-item" *ngFor="let card of cards" (click)="readText(card.sound ?? card.name)" >
           <img [src]="card.image" [alt]="card.name" />
           <div>{{ card.name }}</div>
         </div>

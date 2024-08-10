@@ -4,7 +4,7 @@ import { Client, generateClient } from 'aws-amplify/api';
 import * as mutations from '../../../graphql/mutations';
 import * as queries from '../../../graphql/queries';
 import * as subscriptions from '../../../graphql/subscriptions';
-import { Card, ListCardsQuery } from '../../../API';
+import { Card, CreateCardInput, ListCardsQuery, UpdateCardInput } from '../../../API';
 import { getCurrentUser } from 'aws-amplify/auth';
 
 @Injectable({
@@ -35,7 +35,7 @@ export class CardApiService {
     });
   }
 
-  async createCard(card: Card) {
+  async createCard(card: CreateCardInput) {
     return await this.client.graphql({
       query: mutations.createCard,
       variables: { input: card },
@@ -51,7 +51,7 @@ export class CardApiService {
     });
   }
 
-  async updateCard(card: Card) {
+  async updateCard(card: UpdateCardInput) {
     return await this.client.graphql({
       query: mutations.updateCard,
       variables: { input: card },
